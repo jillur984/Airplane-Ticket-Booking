@@ -1,20 +1,22 @@
-import express from "express";
-import cors from "cors";
-import mongoose from "mongoose";
-import dotenv from "dotenv";
-import authRoute from "./Routes/auth.js";
-import flightRoute from "./Routes/flights.js";
-import bookingRoute from "./Routes/booking.js";
-import ticketRoute from "./Routes/tickets.js";
-import multer from "multer";
 import { createCanvas, loadImage } from "canvas";
+import cors from "cors";
+import dotenv from "dotenv";
+import express from "express";
 import jsQR from "jsqr"; // Make sure to install jsQR library
+import mongoose from "mongoose";
+import multer from "multer";
+import authRoute from "./Routes/auth.js";
+import bookingRoute from "./Routes/booking.js";
+import flightRoute from "./Routes/flights.js";
+import ticketRoute from "./Routes/tickets.js";
 
 dotenv.config();
 
 const app = express();
 
 const corsOptions = {
+  origin: "http://localhost:5173",
+  credentials: true,
   origin: true,
 };
 const storage = multer.memoryStorage();
